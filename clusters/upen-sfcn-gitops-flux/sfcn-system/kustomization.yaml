@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: sfcn-system
 resources:
   - sfcn-helm-values.yaml
+  - sfcn-helm-secret-values.yaml
   - sfcn-helm-repo.yaml
   - sfcn-helm-release.yaml
 
