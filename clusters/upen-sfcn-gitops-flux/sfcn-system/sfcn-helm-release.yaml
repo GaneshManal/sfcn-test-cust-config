@@ -26,7 +26,5 @@ spec:
     - kind: ConfigMap
       name: sfcn-helm-values
     - kind: Secret
-      name: sfcn-helm-secret-values
-    - kind: Secret
       name: sfcn-helm-reg-override
       optional: true
