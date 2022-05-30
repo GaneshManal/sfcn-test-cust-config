@@ -25,6 +25,6 @@ spec:
   #targetNamespace: apps # set the namespace for all resources
   sourceRef:
     kind: GitRepository
-    name: sfcn-git-repo
+    name: sfcn-gitops-cust1-stack1
     namespace: flux-system
   path: "./clusters/cust1-stack1/sfcn-system"
