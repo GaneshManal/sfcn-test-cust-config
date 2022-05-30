@@ -2,11 +2,11 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: sfcn-git-repo
+  name: sfcn-gitops-cust1-stack1
   namespace: flux-system
 spec:
   interval: 1m
-  url: https://github.com/upendrasahu/sfcn-gitops
+  url: https://github.com/GaneshManal/sfcn-test-cust-config.git
   ref:
     branch: main
 ---

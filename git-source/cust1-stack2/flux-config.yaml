@@ -2,7 +2,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: sfcn-gitrepo-cust1-stack1
+  name: sfcn-gitops-cust1-stack2
   namespace: flux-system
 spec:
   interval: 1m
@@ -25,6 +25,6 @@ spec:
   #targetNamespace: apps # set the namespace for all resources
   sourceRef:
     kind: GitRepository
-    name: sfcn-gitrepo-cust1-stack1
+    name: sfcn-gitops-cust1-stack2
     namespace: flux-system
   path: "./clusters/cust1-stack1/sfcn-system"
