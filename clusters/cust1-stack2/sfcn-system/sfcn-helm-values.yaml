@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sfcn-helm-values
+  namespace: sfcn-system
+data:
+  values.yaml: |-
+    # For dev, values can be overwritten using sfcn-helm-dev-values Secret
+    global:
+      forceUpgradeDeployments: [sfcn-system/sfcn-vpnredirector-enforcer,sfcn-system/sfcn-cag-enforcer]
+      acceptEULA: "yes"
+      platform: "eks"
+      storageType: local
+      imageCredentials:
+        registry: 709825985650.dkr.ecr.us-east-1.amazonaws.com
+        artifactoryRepo: cisco/sfcn/prod
+        username: ""
+        password: ""
+      dataPlaneNamespace: sfcn-system
+      sfcDataPlaneNodeGroup: epworkers
+      eks:
+        clusterName: usahu-sfcn-gitops-flux
+    tags:
+      controlPlane: true
+      dataPlane: true
+    dataPlane:
+      serviceRoles: [vpnredirector,cnfwentry,cntdmid,sfcexit]
+      configurationTier: vCPU8Mem16Gi
+      redis:
+        host: master.usc66a4mem3tmsv.h5wuke.use1.cache.amazonaws.com
+        port: 6379
+      hpa:
+        enable: true
+      publicIPs: [outside]
+    snmpExporter:
+      serviceRoles: [vpnredirector,cnfwentry]
+    scaledown:
+      enable: true
+    cagAdmin:
+      redis:
+        port: 6379
+        host: master.usc66a4mem3tmsv.h5wuke.use1.cache.amazonaws.com
+    apiServer:
+      serviceRoles: [cnfwentry]
+      redis:
+        host: master.usc66a4mem3tmsv.h5wuke.use1.cache.amazonaws.com
+        port: 6379

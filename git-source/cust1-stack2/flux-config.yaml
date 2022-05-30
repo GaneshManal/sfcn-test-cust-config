@@ -27,4 +27,4 @@ spec:
     kind: GitRepository
     name: sfcn-git-repo
     namespace: flux-system
-  path: "./clusters/upen-sfcn-gitops-flux/sfcn-system"
+  path: "./clusters/cust1-stack2/sfcn-system"
